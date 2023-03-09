@@ -62,3 +62,6 @@ WORKDIR /root/SuperPoint_SLAM/
 RUN git clone --recursive -b v1.0.1 https://github.com/pytorch/pytorch && \
     cd pytorch && mkdir build && cd build && \
     python ../tools/build_libtorch.py 
+
+RUN chmod +x build.sh \
+    && ./build.sh
