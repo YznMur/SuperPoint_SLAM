@@ -1,0 +1,1 @@
+docker build . -t x64/super:latest
