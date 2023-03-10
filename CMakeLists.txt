@@ -46,6 +46,11 @@ if(NOT OpenCV_FOUND)
       message(FATAL_ERROR "OpenCV > 2.4.3 not found.")
    endif()
 endif()
+find_package(Qt5Widgets REQUIRED)
+find_package(Qt5Concurrent REQUIRED)
+find_package(Qt5OpenGL REQUIRED)
+find_package(Qt5Test REQUIRED)
+
 
 # find_package(Eigen3 3.1.0 REQUIRED)
 list(APPEND CMAKE_INCLUDE_PATH "/usr/local/include") 
@@ -99,7 +104,7 @@ ${Pangolin_LIBRARIES}
 ${PROJECT_SOURCE_DIR}/Thirdparty/DBoW3/lib/libDBoW3.so
 ${PROJECT_SOURCE_DIR}/Thirdparty/g2o/lib/libg2o.so
 )
-
+# set( DBoW3_LIBS "/usr/local/lib/libDBoW3.so" )
 # Build examples
 
 # set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/Examples/RGB-D)
