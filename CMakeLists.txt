@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.1 FATAL_ERROR)
-project(SuerPoint_SLAM)
+project(SuperPoint_SLAM)
 
 IF(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release)
@@ -52,6 +52,7 @@ list(APPEND CMAKE_INCLUDE_PATH "/usr/local/include")
 find_package (Eigen3 3.3 REQUIRED NO_MODULE)
 find_package(Pangolin REQUIRED)
 find_package(Torch REQUIRED)
+target_link_libraries(SuperPoint_SLAM"${TORCH_LIBRARIES}")
 
 include_directories(
 ${PROJECT_SOURCE_DIR}
