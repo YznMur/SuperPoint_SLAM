@@ -10,7 +10,7 @@ MESSAGE("Build type: " ${CMAKE_BUILD_TYPE})
 
 # Set your path of packages.
 # If cmake cannot find opencv or eigen3, try to set the path manually as following.
-#set(Torch_DIR "/root/SuperPoint_SLAM/Thirdparty/libtorch/share/cmake/Torch")  # libtorch
+set(Torch_DIR "/root/SuperPoint_SLAM/Thirdparty/libtorch/share/cmake/Torch")
 # set(OpenCV_DIR "/usr/share/OpenCV")   # opencv
 # set(Eigen3_DIR "/usr/lib/cmake/eigen3")    # eigen3
 
@@ -52,7 +52,7 @@ list(APPEND CMAKE_INCLUDE_PATH "/usr/local/include")
 find_package (Eigen3 3.3 REQUIRED NO_MODULE)
 find_package(Pangolin REQUIRED)
 find_package(Torch REQUIRED)
-target_link_libraries(SuperPoint_SLAM"${TORCH_LIBRARIES}")
+target_link_libraries(SuperPoint_SLAM "${TORCH_LIBRARIES}")
 
 include_directories(
 ${PROJECT_SOURCE_DIR}
