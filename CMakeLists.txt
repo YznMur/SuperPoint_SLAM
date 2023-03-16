@@ -38,8 +38,13 @@ else()
 endif()
 
 LIST(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake_modules)
+#find_package(OpenCV 3.4 QUIET)
 
-find_package(OpenCV 3.0 QUIET)
+find_package(Qt5Widgets REQUIRED)
+find_package(Qt5Concurrent REQUIRED)
+find_package(Qt5OpenGL REQUIRED)
+find_package(Qt5Test REQUIRED
+find_package(OpenCV 3.4 QUIET)
 if(NOT OpenCV_FOUND)
    find_package(OpenCV 2.4.3 QUIET)
    if(NOT OpenCV_FOUND)
@@ -47,7 +52,7 @@ if(NOT OpenCV_FOUND)
    endif()
 endif()
 
-find_package(Eigen3 3.1.0 REQUIRED)
+find_package(Eigen3 3.3 REQUIRED)
 find_package(Pangolin REQUIRED)
 find_package(Torch REQUIRED)
 
