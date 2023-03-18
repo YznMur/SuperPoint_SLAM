@@ -61,7 +61,8 @@ ${PROJECT_SOURCE_DIR}
 ${PROJECT_SOURCE_DIR}/include
 ${EIGEN3_INCLUDE_DIR}
 ${Pangolin_INCLUDE_DIRS}
-# ${PROJECT_SOURCE_DIR}/Thirdparty/libtorch/include
+
+${PROJECT_SOURCE_DIR}/Thirdparty/libtorch/include
 )
 
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib)
