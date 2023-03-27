@@ -46,10 +46,22 @@ if(NOT OpenCV_FOUND)
       message(FATAL_ERROR "OpenCV > 2.4.3 not found.")
    endif()
 endif()
-
 find_package(Eigen3 3.3 REQUIRED)
 find_package(Pangolin REQUIRED)
+if( TORCH_PATH ) 
+   message("TORCH_PATH set to: ${TORCH_PATH}")
+   set(Torch_DIR ${TORCH_PATH})
+else()
+   message(FATAL_ERROR "Need to specify Torch path, e.g., pytorch/torch/share/cmake/Torch ")
+endif()
+
 find_package(Torch REQUIRED)
+message(STATUS "Torch version is: ${Torch_VERSION}")
+if(Torch_VERSION GREATER 1.0.1)
+   message(STATUS "Torch version is newer than v1.0.1, will use new api")
+   add_definitions(-DTORCH_NEW_API)
+endif()
+
 
 include_directories(
 ${PROJECT_SOURCE_DIR}
@@ -95,28 +107,11 @@ ${TORCH_LIBRARIES}
 ${OpenCV_LIBS}
 ${EIGEN3_LIBS}
 ${Pangolin_LIBRARIES}
+${TORCH_LIBRARIES}
 ${PROJECT_SOURCE_DIR}/Thirdparty/DBoW3/lib/libDBoW3.so
 ${PROJECT_SOURCE_DIR}/Thirdparty/g2o/lib/libg2o.so
 )
-
-# Build examples
-
-# set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/Examples/RGB-D)
-
-# add_executable(rgbd_tum
-# Examples/RGB-D/rgbd_tum.cc)
-# target_link_libraries(rgbd_tum ${PROJECT_NAME})
-
-# set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/Examples/Stereo)
-
-# add_executable(stereo_kitti
-# Examples/Stereo/stereo_kitti.cc)
-# target_link_libraries(stereo_kitti ${PROJECT_NAME})
-
-# add_executable(stereo_euroc
-# Examples/Stereo/stereo_euroc.cc)
-# target_link_libraries(stereo_euroc ${PROJECT_NAME})
-
+target_link_libraries(${PROJECT_NAME} ${TORCH_LIBRARIES})
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/Examples/Monocular)
 
