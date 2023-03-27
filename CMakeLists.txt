@@ -10,7 +10,7 @@ MESSAGE("Build type: " ${CMAKE_BUILD_TYPE})
 
 # Set your path of packages.
 # If cmake cannot find opencv or eigen3, try to set the path manually as following.
-set(Torch_DIR "/root/SuperPoint_SLAM/Thirdparty/libtorch/share/cmake/Torch")
+#set(Torch_DIR "/root/SuperPoint_SLAM/Thirdparty/libtorch/share/cmake/Torch")
 # set(OpenCV_DIR "/usr/share/OpenCV")   # opencv
 # set(Eigen3_DIR "/usr/lib/cmake/eigen3")    # eigen3
 
@@ -38,12 +38,7 @@ else()
 endif()
 
 LIST(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake_modules)
-#find_package(OpenCV 3.4 QUIET)
 
-find_package(Qt5Widgets REQUIRED)
-find_package(Qt5Concurrent REQUIRED)
-find_package(Qt5OpenGL REQUIRED)
-find_package(Qt5Test REQUIRED)
 find_package(OpenCV 3.4 QUIET)
 if(NOT OpenCV_FOUND)
    find_package(OpenCV 2.4.3 QUIET)
