@@ -10,7 +10,7 @@ MESSAGE("Build type: " ${CMAKE_BUILD_TYPE})
 
 # Set your path of packages.
 # If cmake cannot find opencv or eigen3, try to set the path manually as following.
-#set(Torch_DIR "/root/SuperPoint_SLAM/Thirdparty/libtorch/share/cmake/Torch")
+# set(Torch_DIR "/root/SuperPoint_SLAM/Thirdparty/libtorch/share/cmake/Torch")
 # set(OpenCV_DIR "/usr/share/OpenCV")   # opencv
 # set(Eigen3_DIR "/usr/lib/cmake/eigen3")    # eigen3
 
@@ -50,12 +50,12 @@ endif()
 find_package(Eigen3 3.3 REQUIRED)
 find_package(Pangolin REQUIRED)
 
-if( TORCH_PATH ) 
-   message("TORCH_PATH set to: ${TORCH_PATH}")
-   set(Torch_DIR ${TORCH_PATH})
-else()
-   message(FATAL_ERROR "Need to specify Torch path, e.g., pytorch/torch/share/cmake/Torch ")
-endif()
+# if( TORCH_PATH ) 
+#    message("TORCH_PATH set to: ${TORCH_PATH}")
+#    set(Torch_DIR ${TORCH_PATH})
+# else()
+#    message(FATAL_ERROR "Need to specify Torch path, e.g., pytorch/torch/share/cmake/Torch ")
+# endif()
 
 find_package(Torch REQUIRED)
 message(STATUS "Torch version is: ${Torch_VERSION}")
