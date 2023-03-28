@@ -26,5 +26,5 @@ echo "Configuring and building SuperPoint_SLAM ..."
 
 mkdir build
 cd build
-cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_STANDARD=14 -DCMAKE_PREFIX_PATH=$PWD/root/SuperPoint_SLAM/Thirdparty/libtorch ..
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=/root/SuperPoint_SLAM/Thirdparty/libtorch ..
 make -j
